@@ -6,7 +6,7 @@ BoomTube is a responsive and dynamic video platform built using React, TypeScrip
 
 ## 🚀 Technologies Used
 
-React + TypeScript: Ensures a scalable and type-safe architecture for building reusable components.
+* React + TypeScript: Ensures a scalable and type-safe architecture for building reusable components.
 Vite: Delivers fast builds and an optimized development experience.
 YouTube API: Fetches video and channel information dynamically for real-time updates.
 Tailwind CSS: Provides utility-first styling for responsive and modern design.
