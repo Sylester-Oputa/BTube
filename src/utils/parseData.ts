@@ -1,7 +1,7 @@
-import { ChannelPlaylistType, CommentBodyType, HomeVideoCardType } from './Types';
+import { ChannelPlaylistType, CommentBodyType, HomeVideoCardType, PlaylistInfoType } from './Types';
 
 export const parseVideos = ((items: any[]): HomeVideoCardType[] => {
-   return items.map((item: any) => ({
+   return items.map((item: any): HomeVideoCardType => ({
       videoId: item.id,
       videoTitle: item.snippet.title,
       videoDescription: item.snippet.description,
@@ -18,7 +18,7 @@ export const parseVideos = ((items: any[]): HomeVideoCardType[] => {
 })
 
 export const parseChannelPlaylists = ((items: any[]): ChannelPlaylistType[] => {
-   return items.map((item: any) => {
+   return items.map((item: any): ChannelPlaylistType => {
       return {
          id: item.id,
          title: item.snippet.title,
@@ -29,7 +29,7 @@ export const parseChannelPlaylists = ((items: any[]): ChannelPlaylistType[] => {
 })
 
 export const parseComments = (items: any[]): CommentBodyType[] =>{
-   return items.map((comment: any) => ({
+   return items.map((comment: any): CommentBodyType => ({
       commentId: comment.id,
       authorChannelId: comment.snippet.topLevelComment.snippet.authorChannelId.value,
       authorProfile: comment.snippet.topLevelComment.snippet.authorProfileImageUrl,
@@ -41,7 +41,7 @@ export const parseComments = (items: any[]): CommentBodyType[] =>{
 }
 
 export const parseReplies = (items: any[]): CommentBodyType[] => {
-   return items.map((item: any) => ({
+   return items.map((item: any): CommentBodyType => ({
       commentId: item.id,
       authorChannelId: item.snippet.authorChannelId.value,
       authorProfile: item.snippet.authorProfileImageUrl,
@@ -51,7 +51,7 @@ export const parseReplies = (items: any[]): CommentBodyType[] => {
    }))
 }
 
-export const parsePlaylistInfo = (item: any) => ({
+export const parsePlaylistInfo = (item: any): PlaylistInfoType => ({
    id: item.id,
    title: item.snippet.title,
    description: item.snippet.description,

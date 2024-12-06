@@ -14,6 +14,13 @@ import { useNavigate } from "react-router-dom";
 
 const API_KEY = import.meta.env.VITE_API_KEY
 
+interface CategoryType {
+   id: string
+   snippet: {
+      title: string
+   }
+}
+
 function Sidebar({ filter, setFilter, setCategoryId }: {
    filter: string
    setFilter: (filter: string) => void
@@ -22,7 +29,7 @@ function Sidebar({ filter, setFilter, setCategoryId }: {
    
    const navigate = useNavigate()
 
-   const [categoriesData, setCategoriesDate] = useState<any[]>([])
+   const [categoriesData, setCategoriesDate] = useState<CategoryType[]>([])
 
    const fetchAndSetCategories = async () => {
       const response = await axios.get(`https://www.googleapis.com/youtube/v3/videoCategories?key=${API_KEY}&part=snippet&regionCode=us`)
