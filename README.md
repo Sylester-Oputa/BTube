@@ -1,8 +1,8 @@
 # React + TypeScript + Vite
 
-## BoomTube
+## BTube
 
-BoomTube is a responsive and dynamic video platform built using React, TypeScript, and Vite. It integrates with the YouTube API to fetch and display video and channel data in real-time, providing users with an engaging and seamless experience. The website's design is powered by Tailwind CSS, with complementary styles from Bootstrap.
+BTube is a responsive and dynamic video platform built using React, TypeScript, and Vite. It integrates with the YouTube API to fetch and display video and channel data in real-time, providing users with an engaging and seamless experience. The website's design is powered by Tailwind CSS, with complementary styles from Bootstrap.
 
 ## 🚀 Technologies Used
 
@@ -22,10 +22,10 @@ BoomTube is a responsive and dynamic video platform built using React, TypeScrip
 ## 📚 Acknowledgements
 
 * YouTube API: Used for retrieving videos and channels videos.
-* Tailwind CSS: For modern and responsive design.
+* Tailwins CSS: For modern and responsive design.
 * Bootstrap: For additional pre-designed components.
 * Vite: For an optimized development experience.
 
-## Color Hex Code
+## Hex Color Scheme
 
  #DC352D, #101B28, #DA8A85 and #D46C6C
