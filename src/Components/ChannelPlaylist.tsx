@@ -1,4 +1,3 @@
-import React from 'react'
 import ChannelPlaylistCard from './ChannelPlaylistCard'
 import { ChannelPlaylistType } from '../utils/Types';
 
