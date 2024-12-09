@@ -23,7 +23,7 @@ function Navbar( {search, setSearch}: { search: string, setSearch: (q: string) =
    
   return (
     <div className='sticky top-0 z-50 w-full bg-[#D46C6C]'>
-      <div className='flex md:gap-0 gap-2 justify-between h-14 w-[95%] mx-auto'>
+      <div className='flex md:gap-4 gap-5 justify-between h-14 w-[95%] mx-auto'>
          <div className='flex items-center gap-3 cursor-pointer md:gap-8'>
          <a className="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
             <GiHamburgerMenu className="text-lg sm:text-3xl"/>
@@ -31,7 +31,7 @@ function Navbar( {search, setSearch}: { search: string, setSearch: (q: string) =
             <div 
             className='flex items-center gap-1' 
             onClick={() => navigate(`/`)}>
-               <img src={Logo} alt='Logo' className="w-8 h-8 sm:h-10 sm:w-15" />
+               <img src={Logo} alt='Logo' className="w-8 h-8 sm:h-5 sm:w-10" />
                <span className='text-sm sm:text-md'>BTube</span>
             </div>
          </div>
@@ -43,7 +43,7 @@ function Navbar( {search, setSearch}: { search: string, setSearch: (q: string) =
                         value={search}
                         type='text'
                         placeholder='Search'
-                        className='md:w-96 w-full px-3 sm:text-lg text-md text-zinc-300 placeholder-neutral-200 bg-[#D46C6C] focus:outline-none'
+                        className='w-50 sm:w-80 px-2 text-sm sm:text-md text-zinc-300 placeholder-neutral-200 bg-[#D46C6C] focus:outline-none'
                         onChange={(e) => setSearch(e.target.value)}
                         onKeyDown={handleKeyPress}
                      />
@@ -60,7 +60,7 @@ function Navbar( {search, setSearch}: { search: string, setSearch: (q: string) =
                </div>
             </form>
          </div>
-         <div className='hidden lg:block'>
+         <div className='hidden md:block'>
             {/* Empty */}
          </div>
       </div>
