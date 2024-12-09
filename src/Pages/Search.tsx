@@ -43,7 +43,7 @@ function Search({ setSearch }: { setSearch: (q: string) => void }) {
 
 
   return (
-    <div className='row row-cols-3 w-[95%] mx-auto mt-6'>
+    <div className='row row-cols-md-3 row-cols-sm-2 row-cols-1 w-[95%] mx-auto mt-6'>
       {
          searchList?.map((item: HomeVideoCardType) =>
             <Card data={item} />
