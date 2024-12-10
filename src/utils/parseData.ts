@@ -1,5 +1,5 @@
 import { ChannelPlaylistType, CommentBodyType, HomeVideoCardType, PlaylistInfoType } from './Types';
-import { formatViews } from '../Hooks/FormatVideoData';
+import { formatLikes, formatViews } from '../Hooks/FormatVideoData';
 
 export const parseVideos = ((items: any[]): HomeVideoCardType[] => {
    return items.map((video: any): HomeVideoCardType => {
@@ -10,11 +10,12 @@ export const parseVideos = ((items: any[]): HomeVideoCardType[] => {
       const seconds = parseInt(durationMatch?.[3] || "0", 10);
       const formattedDuration = `${minutes}:${seconds.toString().padStart(2, "0")}`;
 
-      // Parse published date
       const publishedAtIso = video.snippet.publishedAt;
       const formattedPublishedDate = publishedAtIso.slice(0, 10);
 
       const formattedViews = formatViews(Number(video.statistics.viewCount));
+
+      const formattedLikes = formatLikes(Number(video.statistics.likeCount));
 
       return {
          videoId: video.id,
@@ -23,7 +24,7 @@ export const parseVideos = ((items: any[]): HomeVideoCardType[] => {
          videoDuration: formattedDuration,
          videoAge: formattedPublishedDate,
          videoDescription: video.snippet.description,
-         videoLikes: video.statistics.likeCount,
+         videoLikes: formattedLikes,
          channelInfo: {
             id: video.snippet.channelId,
             name: video.snippet.channelTitle,

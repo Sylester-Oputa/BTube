@@ -15,7 +15,7 @@ function ChannelVideoCard({ item }: { item: HomeVideoCardType }) {
       <div className="flex flex-col gap-1 mt-1">
          <h1 className='text-md line-clamp-1'>{item.videoTitle}</h1>
          <div className="gap-3 text-sm text-gray-400 sm:flex">
-            <h2>{item.videoViews}</h2>
+            <h2>{item.videoViews} views</h2>
             <h2>{item.videoAge}</h2>
          </div>
       </div>

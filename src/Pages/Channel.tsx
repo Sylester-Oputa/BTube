@@ -6,8 +6,6 @@ import ChannelVideoList from '../Components/ChannelVideoList';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../Components/Loading';
 import ChannelPlaylist from "../Components/ChannelPlaylist";
-// import axios from "axios";
-// import { getChannelPlaylists } from "../utils/api";
 
 
 

@@ -29,8 +29,6 @@ export interface ChannelInfoType {
     id: string,
     thumbnail: string,
     title: string,
-    // image: string,
-    // name: string,
     customUrl: string,
     description: string
     subCount: string,
