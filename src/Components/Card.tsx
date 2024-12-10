@@ -22,7 +22,7 @@ function Card({ data }: { data: HomeVideoCardType }) {
                 <div className="text-sm sm:text-md">
                     <h4>{data.channelInfo.name}</h4>
                     <div className="flex gap-1">
-                        <span>{data.videoViews}</span>
+                        <span>{data.videoViews} views</span>
                         <span>.</span>
                         <span>{data.videoAge}</span>
                     </div>

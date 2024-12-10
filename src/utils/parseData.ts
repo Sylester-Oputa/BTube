@@ -1,21 +1,39 @@
 import { ChannelPlaylistType, CommentBodyType, HomeVideoCardType, PlaylistInfoType } from './Types';
+import { formatViews } from '../Hooks/FormatVideoData';
 
 export const parseVideos = ((items: any[]): HomeVideoCardType[] => {
-   return items.map((item: any): HomeVideoCardType => ({
-      videoId: item.id,
-      videoTitle: item.snippet.title,
-      videoDescription: item.snippet.description,
-      videoThumbnail: item.snippet.thumbnails.standard?.url || item.snippet.thumbnails.default?.url,
-      videoDuration: item.contentDetails.duration,
-      videoViews: item.statistics.viewCount,
-      videoLikes: item.statistics.likeCount,
-      videoAge: item.snippet.publishedAt,
-      channelInfo:{
-        id: item.snippet.channelId,
-        name: item.snippet.channelTitle
-      }
-   }))
-})
+   return items.map((video: any): HomeVideoCardType => {
+      const durationIso = video.contentDetails.duration;
+      const durationMatch = durationIso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+      const hours = parseInt(durationMatch?.[1] || "0", 10);
+      const minutes = parseInt(durationMatch?.[2] || "0", 10) + hours * 60;
+      const seconds = parseInt(durationMatch?.[3] || "0", 10);
+      const formattedDuration = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+
+      // Parse published date
+      const publishedAtIso = video.snippet.publishedAt;
+      const formattedPublishedDate = publishedAtIso.slice(0, 10);
+
+      const formattedViews = formatViews(Number(video.statistics.viewCount));
+
+      return {
+         videoId: video.id,
+         videoThumbnail: video.snippet.thumbnails.high.url,
+         videoTitle: video.snippet.title,
+         videoDuration: formattedDuration,
+         videoAge: formattedPublishedDate,
+         videoDescription: video.snippet.description,
+         videoLikes: video.statistics.likeCount,
+         channelInfo: {
+            id: video.snippet.channelId,
+            name: video.snippet.channelTitle,
+            image: video.snippet.thumbnails.default.url,
+         },
+         videoViews: formattedViews,
+      };
+   });
+  });
+
 
 export const parseChannelPlaylists = ((items: any[]): ChannelPlaylistType[] => {
    return items.map((item: any): ChannelPlaylistType => {
