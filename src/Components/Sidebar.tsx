@@ -99,6 +99,8 @@ function Sidebar({ filter, setFilter, setCategoryId }: {
       setCategoryId(categoryId)
    }
 
+   const currentYear = new Date().getFullYear();
+
 
   return (
     <div data-bs-toggle="offcanvas" className="w-full h-full text-white bg-[#D46C6C]">
@@ -141,6 +143,11 @@ function Sidebar({ filter, setFilter, setCategoryId }: {
                )}
             </ul>
          </div>
+
+         <div className="text-center py-2 px-5 ">
+            <p>Designed by Sylvester Oputa© {currentYear}</p>
+         </div>
+
     </div>
   )
 }
