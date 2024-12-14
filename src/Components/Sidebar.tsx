@@ -144,7 +144,7 @@ function Sidebar({ filter, setFilter, setCategoryId }: {
             </ul>
          </div>
 
-         <div className="text-center py-2 px-5 ">
+         <div className="text-center py-2 px-5 md:py-3">
             <p>Designed by Sylvester Oputa© {currentYear}</p>
          </div>
 
